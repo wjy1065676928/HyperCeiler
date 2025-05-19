@@ -59,14 +59,12 @@ jobs:
           echo "GIT_TOKEN=${{ secrets.GIT_TOKEN }}" >> $GITHUB_ENV
 
       - name: Build with Gradle (Canary)
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         shell: bash
         run: |
           ./gradlew assembleCanary
           echo "IS_DEBUG=false" >> $GITHUB_ENV
 
       - name: Build with Gradle (Debug)
-        if: github.event_name == 'pull_request'
         shell: bash
         run: |
           ./gradlew assembleDebug

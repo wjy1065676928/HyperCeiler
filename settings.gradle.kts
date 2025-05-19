@@ -1,6 +1,6 @@
 @file:Suppress("UnstableApiUsage")
-val gprUser = System.getenv("GPR_USER") ?: throw GradleException("GPR_USER 环境变量未设置")
-val gprKey = System.getenv("GPR_KEY") ?: throw GradleException("GPR_KEY 环境变量未设置")
+var gprUser = System.getenv("GIT_ACTOR") ?:""
+var gprKey = System.getenv("GIT_TOKEN") ?: ""
 
 val gprInfoFile = File(rootProject.projectDir, "signing.properties")
 
